@@ -1,5 +1,5 @@
 local M = {}
-local auto_command_group = vim.api.nvim_create_augroup("marco-autocopyright", {})
+local auto_command_group = vim.api.nvim_create_augroup("dotherightthing-autocmds", {})
 
 M.setup = function(opts)
     M.config = opts or {}
