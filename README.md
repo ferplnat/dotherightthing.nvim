@@ -12,21 +12,23 @@ Configuration is minimal, there are very few options. An example configuration
 below.
 
 ```lua
+local company_name = "CompanyName"
+
 require('dotherightthing').setup({
     filetypes = {
         ['ps1'] = '# Copyright CompanyName. All rights reserved.',
 
         ['cs'] = {
-            local company_name = "CompanyName"
             function(cbk)
                 -- Get the filename from the full path in the callback
                 local filename = vim.fn.fnamemodify(cbk.match, ':t')
-                return '// <copyright file="' .. filename .. '" company="' .. '">'
+                return '// <copyright file="' .. filename .. '" company="' .. company_name .. '">'
             end,
 
-            '// Copyright (c) ' .. '. All rights reserved.',
+            '// Copyright (c) ' .. company_name .. '. All rights reserved.',
             '// </copyright>',
         },
+    },
 
     debug = false,
 })
